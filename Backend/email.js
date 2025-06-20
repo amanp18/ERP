@@ -9,8 +9,8 @@ const transporter = nodemailer.createTransport({
     }
 })
 export const sendconfirm = async(student)=>{
-    const yes = `http://localhost:3000/confirm-fee?student_id=${student._id}&response=yes`
-    const no = `http://localhost:3000/confirm-fee?student_id=${student._id}&response=no`
+    const yes = `https://erp-74ez.onrender.com/confirm-fee?student_id=${student._id}&response=yes`
+    const no = `https://erp-74ez.onrender.com/confirm-fee?student_id=${student._id}&response=no`
 
     await transporter.sendMail({
         from: 'amanpratap9868@gmail.com',
