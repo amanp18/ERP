@@ -4,9 +4,9 @@ const transporter = nodemailer.createTransport({
     secure: true,
     service: 'gmail',
     auth:{
-        user: 'amanpratap9868@gmail.com',
-        pass: 'dnth eihr qvip dubu'
-    }
+        user:  process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS
+  }
 })
 export const sendconfirm = async(student)=>{
     const yes = `https://erp-74ez.onrender.com/confirm-fee?student_id=${student._id}&response=yes`
