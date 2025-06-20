@@ -1,0 +1,25 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+input, button {
+  padding: 8px;
+  margin: 5px;
+}
+.student-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 6px;
+}
+.update-btn {
+  margin-top: 6px;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 6px 10px;
+}
+.update-btn:hover {
+  background-color: #0b7dda;
+}

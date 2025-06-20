@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Principal Dashboard - ERP</title>
+  <link rel="stylesheet" href="Style.css" />
+</head>
+<body>
+  <h2>Principal Login</h2>
+  <input id="username" placeholder="Username" />
+  <input id="password" type="password" placeholder="Password" />
+  <button onclick="login()" >Login</button>
+
+  <div id="main" style="display: none;">
+    <h3>All Students</h3>
+    <div id="students"></div>
+
+<h3>Create New Student</h3>
+<input id="newName" placeholder="Name" />
+<input id="newEmail" placeholder="Email" />
+<input id="newTotalfee" placeholder="Total Fee" />
+<input id="newDueAmount" placeholder="Due Amount" />
+<input id="newDueDate" type="date" />
+
+<button onclick="createStudent()">Add Student</button>
+    <h3>Update Fee for <span id="selectedName">[none]</span></h3>
+    <input id="studentId" type="hidden" />
+    <input id="totalfee" placeholder="Total Fee" />
+    <input id="dueAmount" placeholder="Due Amount" />
+    <input id="dueDate" type="date" />
+    <button onclick="updateFee()">Submit Update</button>
+  </div>
+
+  <script src="Script.js"></script>
+</body>
+</html>
