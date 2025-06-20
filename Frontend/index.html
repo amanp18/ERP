@@ -11,18 +11,19 @@
   <input id="password" type="password" placeholder="Password" />
   <button onclick="login()" >Login</button>
 
-  <div id="main" style="display: none;">
-    <h3>All Students</h3>
-    <div id="students"></div>
-
-<h3>Create New Student</h3>
+  <div id='maintoo' style="display: none;"><h3>Create New Student</h3>
 <input id="newName" placeholder="Name" />
 <input id="newEmail" placeholder="Email" />
 <input id="newTotalfee" placeholder="Total Fee" />
 <input id="newDueAmount" placeholder="Due Amount" />
 <input id="newDueDate" type="date" />
+<button onclick="createStudent()">Add Student</button>  </div>
 
-<button onclick="createStudent()">Add Student</button>
+  <div id="main" style="display: none;">
+    <h3>All Students</h3>
+    <div id="students"></div>
+
+
     <h3>Update Fee for <span id="selectedName">[none]</span></h3>
     <input id="studentId" type="hidden" />
     <input id="totalfee" placeholder="Total Fee" />

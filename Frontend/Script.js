@@ -1,11 +1,11 @@
-console.log("✅ script.js loaded");
+
 const backend = 'http://localhost:3000';
 
 const login= async()=> {
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
 
-  await fetch(`http://localhost:3000/admin/login`, {
+  await fetch(`${backend}/admin/login`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ username, password })
@@ -19,6 +19,7 @@ const login= async()=> {
         alert("Login successful");
         localStorage.setItem("token", data.token);
         document.getElementById("main").style.display = "block";
+        document.getElementById("maintoo").style.display = "block";
         loadStudents();
       }
     })
@@ -28,8 +29,8 @@ const login= async()=> {
 }
 
 
-const loadStudents=()=> {
-  fetch(`${backend}/admin/students`, {
+const loadStudents=async()=> {
+  await fetch(`${backend}/admin/students`, {
    headers: {
     Authorization: `Bearer ${localStorage.getItem("token")}`
   }})
@@ -52,7 +53,7 @@ const loadStudents=()=> {
 }
 
 
-const prefillUpdate=(student)=> {
+const prefillUpdate= (student)=> {
   document.getElementById("studentId").value = student._id;
   document.getElementById("totalfee").value = student.totalfee;
   document.getElementById("dueAmount").value = student.dueAmount;
@@ -60,7 +61,7 @@ const prefillUpdate=(student)=> {
   document.getElementById("selectedName").innerText = student.name;
 }
 
-const updateFee=()=> {
+const updateFee= async()=> {
   const id = document.getElementById("studentId").value;
   const totalfee = document.getElementById("totalfee").value;
   const dueAmount = document.getElementById("dueAmount").value;
@@ -68,7 +69,7 @@ const updateFee=()=> {
 
   if (!id) return alert("Select a student to update first.");
 
- fetch(`${backend}/admin/student/${id}`, {
+ await fetch(`${backend}/admin/student/${id}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -87,7 +88,7 @@ const updateFee=()=> {
       loadStudents();
     });
 }
-const createStudent=() =>{
+const createStudent= async() =>{
   const name = document.getElementById("newName").value;
   const email = document.getElementById("newEmail").value;
   const totalfee = document.getElementById("newTotalfee").value;
@@ -96,7 +97,7 @@ const createStudent=() =>{
 
   if (!name || !email) return alert("Name and email are required");
 
-  fetch(`${backend}/admin/add-student`, {
+ await fetch(`${backend}/admin/add-student`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
